@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Rain Animation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #ff69b4, #ffb6c1);
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+
+        /* Overlay text di tengah */
+        .overlay {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(128, 128, 128, 0.8); /* Abu-abu transparan */
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .overlay h1 {
+            color: pink;
+            font-size: 2em;
+            margin: 0;
+        }
+
+        /* Responsif untuk mobile */
+        @media (max-width: 768px) {
+            .overlay h1 {
+                font-size: 1.5em;
+            }
+        }
+
+        /* Animasi hujan cinta */
+        .rain {
+            position: absolute;
+            top: -10px;
+            animation: fall linear infinite;
+            font-size: 2em;
+            color: red;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+
+        /* Kursor liquid - menggunakan custom cursor dengan animasi */
+        body {
+            cursor: none; /* Sembunyikan kursor default */
+        }
+
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, #ff69b4, #ffb6c1);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1000;
+            animation: liquid 1s infinite ease-in-out;
+        }
+
+        @keyframes liquid {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <h1>Love You Sayang Kuuuu Oneiii</h1>
+    </div>
+
+    <script>
+        // Animasi hujan cinta
+        function createRain() {
+            const rainContainer = document.body;
+            const emojis = ['❤️', '💖', '💕', '💗', '💓']; // Emoji cinta
+
+            setInterval(() => {
+                const rainDrop = document.createElement('div');
+                rainDrop.className = 'rain';
+                rainDrop.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                rainDrop.style.left = Math.random() * 100 + 'vw';
+                rainDrop.style.animationDuration = (Math.random() * 3 + 2) + 's'; // Durasi acak
+                rainContainer.appendChild(rainDrop);
+
+                // Hapus elemen setelah animasi selesai
+                setTimeout(() => {
+                    rainDrop.remove();
+                }, 5000);
+            }, 200); // Interval pembuatan hujan
+        }
+
+        // Kursor liquid
+        const cursor = document.createElement('div');
+        cursor.className = 'cursor';
+        document.body.appendChild(cursor);
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX - 10 + 'px';
+            cursor.style.top = e.clientY - 10 + 'px';
+        });
+
+        // Jalankan animasi
+        createRain();
+    </script>
+</body>
+</html>
