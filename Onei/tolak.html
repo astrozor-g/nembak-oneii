@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seus Gamau??</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .rain {
+            position: absolute;
+            top: -50px;
+            font-size: 2rem;
+            animation: fall 3s linear infinite;
+        }
+
+        .rain:nth-child(odd) {
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .rain:nth-child(even) {
+            left: 20%;
+            animation-delay: 1s;
+        }
+
+        .rain:nth-child(3n) {
+            left: 30%;
+            animation-delay: 2s;
+        }
+
+        .rain:nth-child(4n) {
+            left: 40%;
+            animation-delay: 0.5s;
+        }
+
+        .rain:nth-child(5n) {
+            left: 50%;
+            animation-delay: 1.5s;
+        }
+
+        .rain:nth-child(6n) {
+            left: 60%;
+            animation-delay: 2.5s;
+        }
+
+        .rain:nth-child(7n) {
+            left: 70%;
+            animation-delay: 0.8s;
+        }
+
+        .rain:nth-child(8n) {
+            left: 80%;
+            animation-delay: 1.8s;
+        }
+
+        .rain:nth-child(9n) {
+            left: 90%;
+            animation-delay: 2.8s;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+
+        .message {
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 2rem;
+            z-index: 10;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 2rem;
+            z-index: 10;
+        }
+
+        button {
+            padding: 1rem 2rem;
+            font-size: 1.5rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #mauu {
+            background-color: pink;
+            color: white;
+        }
+
+        #mauu:hover {
+            background-color: #ff69b4;
+        }
+
+        #gamau {
+            background-color: #808080;
+            color: white;
+            position: relative;
+        }
+
+        #gamau:hover {
+            background-color: #696969;
+        }
+    </style>
+</head>
+<body>
+    <div class="message">SERIUS GAMAU??</div>
+    <div class="buttons">
+        <button id="mauu" onclick="location.href='terima.html'">mauu dehh</button>
+        <button id="gamau">tetep gamau</button>
+    </div>
+
+    <!-- Emoji hujan -->
+    <div class="rain">😢</div>
+    <div class="rain">😭</div>
+    <div class="rain">😢</div>
+    <div class="rain">😭</div>
+    <div class="rain">😢</div>
+    <div class="rain">😭</div>
+    <div class="rain">😢</div>
+    <div class="rain">😭</div>
+    <div class="rain">😢</div>
+    <div class="rain">😭</div>
+
+    <script>
+        const gamauButton = document.getElementById('gamau');
+
+        gamauButton.addEventListener('click', function() {
+            // Pindahkan posisi tombol secara acak
+            const randomTop = Math.random() * (window.innerHeight - 100) + 'px';
+            const randomLeft = Math.random() * (window.innerWidth - 200) + 'px';
+            gamauButton.style.position = 'absolute';
+            gamauButton.style.top = randomTop;
+            gamauButton.style.left = randomLeft;
+        });
+    </script>
+</body>
+</html>
